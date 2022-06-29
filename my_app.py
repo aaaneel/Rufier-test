@@ -3,7 +3,8 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QVBoxLayout, QHBoxLayout, QLineEdit
 
 from instr import *
-# здесь лучше сначала добавить print()
+from second_win import *
+
 class MainWin(QWidget):
     def __init__(self):
         super().__init__()
@@ -17,9 +18,26 @@ class MainWin(QWidget):
         self.resize(win_width,win_height)
         self.move(300,300)
     def initUI(self):
-        pass
+        self.helo_txt = QLabel(txt_hello)
+        self.instruction=QLabel(txt_instruction)
+        self.button = QPushButton(txt_next)
+
+        self.VLayout = QVBoxLayout()
+        self.VLayout.addWidget(self.helo_txt)
+        self.VLayout.addWidget(self.instruction)
+        self.VLayout.addWidget(self.button)
+
+        self.setLayout(self.VLayout)
+
+
+
+
     def connects(self):
-        pass
+        self.button.clicked.connect(self.next_click)
+
+    def next_click(self):
+        self.hide()
+        self.tw = TestWin()
 
 
 app=QApplication([])
