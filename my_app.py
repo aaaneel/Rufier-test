@@ -1,5 +1,5 @@
 # напиши здесь код основного приложения и первого экрана
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QTimer, QTime
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QVBoxLayout, QHBoxLayout, QLineEdit
 
 from instr import *
@@ -16,7 +16,7 @@ class MainWin(QWidget):
     def set_appear(self):
         self.setWindowTitle(winTitle)
         self.resize(win_width,win_height)
-        self.move(300,300)
+        self.move(200,100)
     def initUI(self):
         self.helo_txt = QLabel(txt_hello)
         self.instruction=QLabel(txt_instruction)
